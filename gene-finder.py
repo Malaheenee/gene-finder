@@ -87,3 +87,58 @@ def gene_prepare(gene_dict_file):
                 continue
             gene_dict[string[0]] += re.split(r',\s+', tmp)
     return gene_dict
+
+# Run program if it call here
+if __name__ == '__main__':
+    gene_dict_file, abstract_file, pattern_file = arg_receive()
+
+    pattern_dict = pattern_prepare(os.path.abspath(pattern_file))
+
+    gene_dict = gene_prepare(os.path.abspath(gene_dict_file))
+
+    RES_OPEN = open('result.txt', 'w')
+    RES_OPEN.write(', '.join(['PMID','Journal','Gene','Exact match',\
+                              'miR','Features 1','Features 2','Features 3']))
+
+    ABS_OPEN = open(abstract_file, 'r')
+    abstract = ''
+    while True:
+        string = ABS_OPEN.readline()
+        if not string:
+            ABS_OPEN.close()
+            break
+        if not string.startswith('PMID'):
+            abstract += string
+        else:
+            abstract_pmid = re.split(r'\s+', string.rstrip())[1]
+            abstract = re.split(r'\r\n\r\n', abstract)
+            if len(abstract) >= 7:
+                abstract_journ = re.sub(r'^\d+. ', '', abstract[1])
+                abstract_text = re.sub(r'\r\n', ' ', abstract[-2])
+
+                for key in gene_dict.keys():
+                    for gene in gene_dict[key]:
+                        if abstract_text.find(gene) != -1:
+                            RES_OPEN.write('\n')
+                            RES_OPEN.write(abstract_pmid)
+                            RES_OPEN.write('\t')
+                            RES_OPEN.write(abstract_journ)
+                            RES_OPEN.write('\t')
+                            RES_OPEN.write(key)
+                            RES_OPEN.write('\t')
+                            RES_OPEN.write(gene)
+                            RES_OPEN.write('\t')
+
+                            result = dict.fromkeys(pattern_dict.keys())
+                            for pattern in sorted(pattern_dict.keys()):
+                                result[pattern] = []
+                                for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
+                                    match = str(match.group(0))
+                                    if match not in result[pattern]:
+                                        result[pattern].append(match)
+                                RES_OPEN.write(", ".join(result[pattern]))
+                                RES_OPEN.write('\t')
+            abstract = ''
+    RES_OPEN.close()
+
+
