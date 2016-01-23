@@ -49,3 +49,26 @@ def arg_receive():
     args = parser.parse_args()
     
     return args.g, args.a, args.p
+
+# Prepare search patterns
+def pattern_prepare(pattern_file):
+    pattern_dict = {}
+    tmp_pat = ''
+    tmp_pat_name = ''
+    PATT_OPEN = open(pattern_file, 'r')
+    while True:
+        string = PATT_OPEN.readline()
+        if not string:
+            PATT_OPEN.close()
+            break
+        string = string.rstrip()
+        if string.startswith('#'):
+            tmp_pat_name = string[1:]
+        elif string.endswith('|'):
+            tmp_pat += string
+        else:
+            tmp_pat += string
+            pattern_dict[tmp_pat_name] = re.compile(tmp_pat, re.IGNORECASE)
+            tmp_pat = ''
+            tmp_pat_name = ''
+    return pattern_dict
