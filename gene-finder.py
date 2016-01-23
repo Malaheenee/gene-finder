@@ -70,3 +70,20 @@ def pattern_prepare(pattern_file):
             tmp_pat += string
             pattern_dict[tmp_pat_name] = re.compile(tmp_pat, re.IGNORECASE)
     return pattern_dict
+
+# Prepare gene dictionary
+def gene_prepare(gene_dict_file):
+    gene_dict = {}
+    for string in open(gene_dict_file):
+        if string.startswith('#'):
+            continue
+        string = string.rstrip().split(';')
+        gene_dict[string[0]] = [string[0], string[0].upper(), \
+                                string[0].lower(), string[0].lower().capitalize()]
+        if not string[0][-1].isdigit():
+            gene_dict[string[0]] += [string[0][0:-1].lower() + string[0][-1].upper()]
+        for tmp in string[1:]:
+            if tmp == '':
+                continue
+            gene_dict[string[0]] += re.split(r',\s+', tmp)
+    return gene_dict
