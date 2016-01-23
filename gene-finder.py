@@ -7,6 +7,7 @@ import sys
 import re
 import argparse
 
+# Arguments parser
 def arg_receive():
     "This script ..."
     parser = argparse.ArgumentParser(
