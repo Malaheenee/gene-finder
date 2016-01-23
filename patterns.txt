@@ -1,0 +1,80 @@
+#MIR
+\(?(miR|let)\)?\-\d+\w*(-3p|-5p)?\*?
+
+#NWORD
+arter(y|ies)(\ *)hypertension|
+mouse|
+mice|
+rat|
+human|
+(cell)(\ *)(line)|
+endothelial|
+vascular(\ *)smooth(\ *)muscle|
+mesenteric
+
+#PWORD
+oxidative(\ *)stress|
+angiotensin-converting(\ *)enzyme|
+vasodilation|
+contraction|
+renin(-angiotensin)?|
+contraction|
+vasopressin-regulated|
+stiffness|
+platelet|
+endothelin((\ *)|-)1|
+matrix(\ *)metallopeptidase
+
+#SWORD
+aldosterone|
+transcription(\ *)factor|
+cell(\ *)cycle|
+apoptosis|
+coagulation|complement(\ *)cascade|
+gamma(\ *)delta|
+cardiac(\ *)muscle|
+adrenergic|
+cardiomyocyte|
+calcium|
+aldosterone|
+circadian(\ *)rhythm|
+(dilated|hypertrophic|(arrhythmogenic(\ *)right(\ *)ventricular))(\ *)cardiomyopathy|
+myocarditis|
+cancer|
+microrna|
+insulin(\ *)resistance|
+diabetes((\ *)mellitus)|
+heart|
+myocardial|
+cerebr(ovascular|al)|
+microvascular|
+carotid|
+metabolic(\ *)syndrome|
+infarction|
+heart(\ *)failure|
+stroke|
+ischemia|
+coronary|
+pulmonary|
+kidney|
+(t|b)(\ )cell|
+macrophage|
+(neutro|granulo)(phil|cyte)|
+lymphocyte|
+natural(\ *)killer|
+polymorphonuclear|
+cytotoxic|
+suppressor|
+nk|
+helper|
+eosinophil|
+basophil|
+inflammation|
+blood(\ *)vessel|
+bone marrow|
+thymus|
+immun(ity|e)|
+aort(a|ic)|
+collagen|
+endothelin|
+atherosclerosis?
