@@ -101,16 +101,16 @@ def gene_prepare(gene_dict_file, search_bit):
         gname = string[0]
         if gname not in gene_dict:
             gene_dict[gname] = []
-        for tmp in string[1:]:
-            if tmp == '':
-                continue
-            gene_dict[gname] += re.split(r',\s+', tmp)
+        gene_dict[gname] += re.split(r',\s+', string[1])
         # Make dictionary for search if set search bit
         if search_bit != 0:
             tmp_list = []
             gene_dict[gname] += [gname]
             for tmp in gene_dict[gname]:
-                tmp_list.append(re.compile(''.join(['\se?', tmp, '(\s|\(|\-)?']), re.IGNORECASE))
+                if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
+                tmp == '' or re.match(r'a(n|t)|be|i(n|t)|my|not?|o(f|r|n)|to|up|we|aim|but|far|man|via|was', tmp, re.IGNORECASE):
+                    continue
+                tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '(\s|\(|\-)']), re.IGNORECASE))
             gene_dict[gname] = tmp_list
     return gene_dict
 
