@@ -125,15 +125,19 @@ if __name__ == '__main__':
         else:
             arg_files[key] = None
 
+    print('Prepare patterns...')
     pattern_dict = pattern_prepare(arg_files['p'])
 
+    print('Prepare gene dictionary...')
     gene_dict = gene_prepare(arg_files['g'], 1)
 
     if arg_files['k']:
+        print('Prepare KEGG dictionary...')
         kegg_dict = gene_prepare(arg_files['k'], 0)
     else:
         kegg_dict = None
     if arg_files['m']:
+        print('Prepare miRNA-hosts dictionary...')
         host_dict = gene_prepare(arg_files['m'], 0)
     else:
         host_dict = None
@@ -143,6 +147,7 @@ if __name__ == '__main__':
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
 
+    print('Searching...')
     ABS_OPEN = open(arg_files['a'], 'r')
     abstract = ''
     while True:
