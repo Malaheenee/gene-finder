@@ -1,0 +1,12 @@
+Sep5;Parkinson's disease
+CAD;Protein processing in endoplasmic reticulum
+1300017J02Rik;HIF-1 signaling pathway
+1300017J02Rik;Mineral absorption
+1700009N14Rik;RNA transport
+1700012L04Rik;Systemic lupus erythematosus
+Zzef1;Systemic lupus erythematosus
+1700024P04Rik;Viral carcinogenesis
+1700061G19Rik;Adipocytokine signaling pathway
+CAD;Fatty acid biosynthesis
+1700061G19Rik;Fatty acid degradation
+1700061G19Rik;PPAR signaling pathway
