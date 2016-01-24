@@ -163,7 +163,7 @@ if __name__ == '__main__':
                     for gene in gene_dict[key]:
                         match = gene.search(abstract_text, re.MULTILINE)
                         if match:
-                            match = str(match.group(0))
+                            match = abstract_text[match.start(0)-20:match.end(0)+20]
                             RES_OPEN.write('\n')
                             RES_OPEN.write(';'.join([abstract_pmid, key, match, '']))
 
