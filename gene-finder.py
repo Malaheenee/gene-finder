@@ -47,7 +47,7 @@ def arg_receive():
         type=str,
         required=False,
         nargs='?',
-        default='patterns2.txt',
+        default='patterns.txt',
         metavar='FILE',
         help='The file with search patterns (default "patterns.txt")')
 
