@@ -47,10 +47,26 @@ def arg_receive():
         nargs='?',
         metavar='The "patterns.txt" file',
         help='The file name with search patterns (default "patterns.txt")')
-        
+
+    parser.add_argument(
+        '-k',
+        type=str,
+        required=False,
+        nargs='?',
+        metavar='The "kegg_dict.txt" file',
+        help='The file name with genes in KEGG pathway (default "kegg_dict.txt")')
+
+    parser.add_argument(
+        '-m',
+        type=str,
+        required=False,
+        nargs='?',
+        metavar='The "host_dict.txt" file',
+        help='The file name with genes-hosts for miRNAs (default "host_dict.txt")')
+
     args = parser.parse_args()
     
-    return args.g, args.a, args.p
+    return args.g, args.a, args.p, args.k, args.m
 
 # Prepare search patterns
 def pattern_prepare(pattern_file):
@@ -73,33 +89,44 @@ def pattern_prepare(pattern_file):
     return pattern_dict
 
 # Prepare gene dictionary
-def gene_prepare(gene_dict_file):
+def gene_prepare(gene_dict_file, search_bit):
     gene_dict = {}
     for string in open(gene_dict_file):
         if string.startswith('#'):
             continue
         string = string.rstrip().split(';')
-        gene_dict[string[0]] = [string[0], string[0].upper(), \
-                                string[0].lower(), string[0].lower().capitalize()]
-        if not string[0][-1].isdigit():
-            gene_dict[string[0]] += [string[0][0:-1].lower() + string[0][-1].upper()]
+        gname = string[0]
+        if gname not in gene_dict:
+            gene_dict[gname] = []
+        # Make dictionary for search if set search bit
+        if search_bit != 0:
+            gene_dict[gname] = [gname, gname.upper(), \
+                                gname.lower(), gname.lower().capitalize()]
+            if not gname[-1].isdigit():
+                gene_dict[gname] += [gname[0:-1].lower() + gname[-1].upper()]
         for tmp in string[1:]:
             if tmp == '':
                 continue
-            gene_dict[string[0]] += re.split(r',\s+', tmp)
+            gene_dict[gname] += re.split(r',\s+', tmp)
     return gene_dict
 
 # Run program if it call here
 if __name__ == '__main__':
-    gene_dict_file, abstract_file, pattern_file = arg_receive()
+    gene_dict_file, abstract_file, pattern_file, kegg_dict_file, host_dict_file = arg_receive()
 
     pattern_dict = pattern_prepare(os.path.abspath(pattern_file))
 
-    gene_dict = gene_prepare(os.path.abspath(gene_dict_file))
+    gene_dict = gene_prepare(os.path.abspath(gene_dict_file), 1)
+
+    if kegg_dict_file:
+        kegg_dict = gene_prepare(os.path.abspath(kegg_dict_file), 0)
+    if host_dict_file:
+        host_dict = gene_prepare(os.path.abspath(host_dict_file), 0)
 
     RES_OPEN = open('result.txt', 'w')
-    RES_OPEN.write(', '.join(['PMID','Journal','Gene','Exact match',\
-                              'miR','Features 1','Features 2','Features 3']))
+    RES_OPEN.write(', '.join(['PMID', 'Journal', 'Gene', 'Exact match',\
+                              'miR', 'Features 1', 'Features 2', 'Features 3',\
+                              'KEGG Pathway', 'Host miR']))
 
     ABS_OPEN = open(abstract_file, 'r')
     abstract = ''
@@ -139,6 +166,11 @@ if __name__ == '__main__':
                                         result[pattern].append(match)
                                 RES_OPEN.write(", ".join(result[pattern]))
                                 RES_OPEN.write('\t')
+                            if kegg_dict and key in kegg_dict:
+                                RES_OPEN.write(", ".join(kegg_dict[key]))
+                            RES_OPEN.write('\t')
+                            if host_dict and key in host_dict:
+                                RES_OPEN.write(", ".join(host_dict[key]))
             abstract = ''
     RES_OPEN.close()
 
