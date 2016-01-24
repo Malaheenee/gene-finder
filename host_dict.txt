@@ -1,0 +1,12 @@
+CAD;uc002rji.2
+SGTA;uc002lwi.5
+MINK1;uc010vsk.1
+PIGT;hsa-mir-6812
+MMP14;uc001whc.2
+WRNIP1;uc003mtz.4
+TPRA1;hsa-mir-6825
+Zzef1;hsa-mir-5006
+TBC1D2;hsa-mir-6854
+UBTF;hsa-mir-6782
+COL27A1;uc011lxl.59
+RAD9A;uc001okr.2
