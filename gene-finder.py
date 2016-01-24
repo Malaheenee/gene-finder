@@ -143,7 +143,7 @@ if __name__ == '__main__':
         host_dict = None
 
     RES_OPEN = open('result.txt', 'w')
-    RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match',\
+    RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
 
@@ -168,9 +168,10 @@ if __name__ == '__main__':
                     for gene in gene_dict[key]:
                         match = gene.search(abstract_text, re.MULTILINE)
                         if match:
-                            match = abstract_text[match.start(0)-20:match.end(0)+20]
                             RES_OPEN.write('\n')
-                            RES_OPEN.write(';'.join([abstract_pmid, key, match, '']))
+                            RES_OPEN.write(';'.join([abstract_pmid, key, \
+                                            match.group(0), \
+                                            abstract_text[match.start(0)-20:match.end(0)+20], '']))
 
                             result = dict.fromkeys(pattern_dict.keys())
                             for pattern in sorted(pattern_dict.keys()):
