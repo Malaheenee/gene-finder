@@ -124,9 +124,9 @@ if __name__ == '__main__':
         host_dict = gene_prepare(os.path.abspath(host_dict_file), 0)
 
     RES_OPEN = open('result.txt', 'w')
-    RES_OPEN.write(', '.join(['PMID', 'Journal', 'Gene', 'Exact match',\
+    RES_OPEN.write(', '.join(['PMID', 'Gene', 'Exact match',\
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
-                              'KEGG Pathway', 'Host miR']))
+                              'KEGG Pathway', 'Host miR', 'Journal']))
 
     ABS_OPEN = open(abstract_file, 'r')
     abstract = ''
@@ -150,8 +150,6 @@ if __name__ == '__main__':
                             RES_OPEN.write('\n')
                             RES_OPEN.write(abstract_pmid)
                             RES_OPEN.write('\t')
-                            RES_OPEN.write(abstract_journ)
-                            RES_OPEN.write('\t')
                             RES_OPEN.write(key)
                             RES_OPEN.write('\t')
                             RES_OPEN.write(gene)
@@ -171,6 +169,8 @@ if __name__ == '__main__':
                             RES_OPEN.write('\t')
                             if host_dict and key in host_dict:
                                 RES_OPEN.write(", ".join(host_dict[key]))
+                            RES_OPEN.write('\t')
+                            RES_OPEN.write(abstract_journ)
             abstract = ''
     RES_OPEN.close()
 
