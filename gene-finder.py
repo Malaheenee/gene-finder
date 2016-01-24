@@ -138,7 +138,7 @@ if __name__ == '__main__':
         host_dict = None
 
     RES_OPEN = open('result.txt', 'w')
-    RES_OPEN.write(', '.join(['PMID', 'Gene', 'Exact match',\
+    RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match',\
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
 
@@ -162,12 +162,7 @@ if __name__ == '__main__':
                     for gene in gene_dict[key]:
                         if abstract_text.find(gene) != -1:
                             RES_OPEN.write('\n')
-                            RES_OPEN.write(abstract_pmid)
-                            RES_OPEN.write('\t')
-                            RES_OPEN.write(key)
-                            RES_OPEN.write('\t')
-                            RES_OPEN.write(gene)
-                            RES_OPEN.write('\t')
+                            RES_OPEN.write(';'.join([abstract_pmid, key, gene, '']))
 
                             result = dict.fromkeys(pattern_dict.keys())
                             for pattern in sorted(pattern_dict.keys()):
@@ -176,16 +171,13 @@ if __name__ == '__main__':
                                     match = str(match.group(0))
                                     if match not in result[pattern]:
                                         result[pattern].append(match)
-                                RES_OPEN.write(", ".join(result[pattern]))
-                                RES_OPEN.write('\t')
+                                RES_OPEN.write(';'.join([', '.join(result[pattern]), '']))
                             if kegg_dict and key in kegg_dict:
-                                RES_OPEN.write(", ".join(kegg_dict[key]))
-                            RES_OPEN.write('\t')
+                                RES_OPEN.write(', '.join(kegg_dict[key]))
+                            RES_OPEN.write(';')
                             if host_dict and key in host_dict:
-                                RES_OPEN.write(", ".join(host_dict[key]))
-                            RES_OPEN.write('\t')
+                                RES_OPEN.write(', '.join(host_dict[key]))
+                            RES_OPEN.write(';')
                             RES_OPEN.write(abstract_journ)
             abstract = ''
     RES_OPEN.close()
-
-
