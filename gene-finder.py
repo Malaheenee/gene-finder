@@ -29,44 +29,47 @@ def arg_receive():
         type=str,
         required=False,
         nargs='?',
-        metavar='The "gene_dict.txt" file',
-        help='The filename with genes (default "gene_dict.txt")')
+        default='gene_dict.txt',
+        metavar='FILE',
+        help='The file with genes (default "gene_dict.txt")')
 
     parser.add_argument(
         '-a',
         type=str,
         required=False,
         nargs='?',
-        metavar='The "abstract.txt" file',
-        help='The file name with abstracts (default "abstract.txt")')
+        default='abstract.txt',
+        metavar='FILE',
+        help='The file with abstracts (default "abstract.txt")')
 
     parser.add_argument(
         '-p',
         type=str,
         required=False,
         nargs='?',
-        metavar='The "patterns.txt" file',
-        help='The file name with search patterns (default "patterns.txt")')
+        default='patterns2.txt',
+        metavar='FILE',
+        help='The file with search patterns (default "patterns.txt")')
 
     parser.add_argument(
         '-k',
         type=str,
         required=False,
         nargs='?',
-        metavar='The "kegg_dict.txt" file',
-        help='The file name with genes in KEGG pathway (default "kegg_dict.txt")')
+        default='kegg_dict.txt',
+        metavar='FILE',
+        help='The file with genes in KEGG pathway (default "kegg_dict.txt")')
 
     parser.add_argument(
         '-m',
         type=str,
         required=False,
         nargs='?',
-        metavar='The "host_dict.txt" file',
-        help='The file name with genes-hosts for miRNAs (default "host_dict.txt")')
+        default='host_dict.txt',
+        metavar='FILE',
+        help='The file with genes-hosts for miRNAs (default "host_dict.txt")')
 
-    args = parser.parse_args()
-    
-    return args.g, args.a, args.p, args.k, args.m
+    return vars(parser.parse_args())
 
 # Prepare search patterns
 def pattern_prepare(pattern_file):
@@ -112,23 +115,34 @@ def gene_prepare(gene_dict_file, search_bit):
 
 # Run program if it call here
 if __name__ == '__main__':
-    gene_dict_file, abstract_file, pattern_file, kegg_dict_file, host_dict_file = arg_receive()
 
-    pattern_dict = pattern_prepare(os.path.abspath(pattern_file))
+    arg_files = arg_receive()
 
-    gene_dict = gene_prepare(os.path.abspath(gene_dict_file), 1)
+    for key in arg_files.keys():
+        if os.path.exists(arg_files[key]):
+            arg_files[key] = os.path.abspath(arg_files[key])
+        else:
+            arg_files[key] = None
 
-    if kegg_dict_file:
-        kegg_dict = gene_prepare(os.path.abspath(kegg_dict_file), 0)
-    if host_dict_file:
-        host_dict = gene_prepare(os.path.abspath(host_dict_file), 0)
+    pattern_dict = pattern_prepare(arg_files['p'])
+
+    gene_dict = gene_prepare(arg_files['g'], 1)
+
+    if arg_files['k']:
+        kegg_dict = gene_prepare(arg_files['k'], 0)
+    else:
+        kegg_dict = None
+    if arg_files['m']:
+        host_dict = gene_prepare(arg_files['m'], 0)
+    else:
+        host_dict = None
 
     RES_OPEN = open('result.txt', 'w')
     RES_OPEN.write(', '.join(['PMID', 'Gene', 'Exact match',\
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
 
-    ABS_OPEN = open(abstract_file, 'r')
+    ABS_OPEN = open(arg_files['a'], 'r')
     abstract = ''
     while True:
         string = ABS_OPEN.readline()
