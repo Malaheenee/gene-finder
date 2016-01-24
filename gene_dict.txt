@@ -1,5 +1,6 @@
 # Gene name;Sinonims;Full name;Supplementary caracters
 Zwilch;2310031L18Rik;zwilch kinetochore protein;Zwilch, kinetochore associated homolog
 Zzef1;8430405D05Rik, BC051585, C130099L13Rik, C85424, NSPA, mKIAA0399;zinc finger, ZZ-type with EF hand domain 1;KIAA0399-like protein human, neuronal superface P antigen
-Zzz3;3110065C23Rik, 6430567E01Rik, AA408566, AI481057, AW556059, R75514;zinc finger, ZZ domain containing 3
+Zzz3;31100#65C23Rik, 6430567E01Rik, AA408566, AI481057, AW556059, R75514;zinc finger, ZZ domain containing 3
 CAD;;carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase;CAD trifunctional protein|multifunctional protein CAD
+Frem2;6030440P17Rik, 8430406N05Rik, Gm409, b2b1562Clo, it, on, my, ne, nv1, was;Fras1 related extracellular matrix protein 2;ECM3 homolog, NV domain containing protein NV1, NV domain-containing protein 1
