@@ -101,16 +101,17 @@ def gene_prepare(gene_dict_file, search_bit):
         gname = string[0]
         if gname not in gene_dict:
             gene_dict[gname] = []
-        # Make dictionary for search if set search bit
-        if search_bit != 0:
-            gene_dict[gname] = [gname, gname.upper(), \
-                                gname.lower(), gname.lower().capitalize()]
-            if not gname[-1].isdigit():
-                gene_dict[gname] += [gname[0:-1].lower() + gname[-1].upper()]
         for tmp in string[1:]:
             if tmp == '':
                 continue
             gene_dict[gname] += re.split(r',\s+', tmp)
+        # Make dictionary for search if set search bit
+        if search_bit != 0:
+            tmp_list = []
+            gene_dict[gname] += [gname]
+            for tmp in gene_dict[gname]:
+                tmp_list.append(re.compile(''.join(['\se?', tmp, '(\s|\(|\-)?']), re.IGNORECASE))
+            gene_dict[gname] = tmp_list
     return gene_dict
 
 # Run program if it call here
@@ -160,9 +161,11 @@ if __name__ == '__main__':
 
                 for key in gene_dict.keys():
                     for gene in gene_dict[key]:
-                        if abstract_text.find(gene) != -1:
+                        match = gene.search(abstract_text, re.MULTILINE)
+                        if match:
+                            match = str(match.group(0))
                             RES_OPEN.write('\n')
-                            RES_OPEN.write(';'.join([abstract_pmid, key, gene, '']))
+                            RES_OPEN.write(';'.join([abstract_pmid, key, match, '']))
 
                             result = dict.fromkeys(pattern_dict.keys())
                             for pattern in sorted(pattern_dict.keys()):
