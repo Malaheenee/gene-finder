@@ -70,6 +70,15 @@ def arg_receive():
         metavar='FILE',
         help='The file with genes-hosts for miRNAs (default "host_dict.txt")')
 
+    parser.add_argument(
+        '-o',
+        type=str,
+        required=False,
+        nargs='?',
+        default='result.txt',
+        metavar='FILE',
+        help='The file with results (default "result.txt")')
+
     return vars(parser.parse_args())
 
 # Prepare search patterns
@@ -176,7 +185,7 @@ if __name__ == '__main__':
     arg_files = arg_receive()
 
     for key in arg_files.keys():
-        if os.path.exists(arg_files[key]):
+        if os.path.exists(arg_files[key]) or key == 'o':
             arg_files[key] = os.path.abspath(arg_files[key])
         else:
             arg_files[key] = None
@@ -198,7 +207,7 @@ if __name__ == '__main__':
     else:
         host_dict = None
 
-    RES_OPEN = open('result.txt', 'w')
+    RES_OPEN = open(arg_files['o'], 'w')
     RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
