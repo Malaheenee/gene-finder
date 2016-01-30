@@ -1,200 +1,313 @@
-
-Acute mesenteric occlusion.
-
-PHILLIPS JR, STALNAKER PR.
-
-PMID: 21011671  [PubMed - indexed for MEDLINE]
-
-
-23984. Can Med Assoc J. 1944 Apr;50(4):332-5.
-
-Mycotic Aneurysm of the Superior Mesenteric Artery as a Complication of Subacute 
-Bacterial Endocarditis.
-
-Laufer ST, Smith RP.
-
-PMCID: PMC1581619
-PMID: 20323059  [PubMed]
-
-
-23985. Cal West Med. 1934 May;40(5):368-70.
-
-Coarctation of the Aorta, Anomalous Coronary Artery and Patent Ductus Arteriosus:
-Report of Case with Subacute Bacterial Endocarditis, Showing Mycotic Aneurysms of
-the Aorta and Superior Mesenteric Artery.
-
-Kellogg F, Biskind GR.
-
-PMCID: PMC1659011
-PMID: 18742864  [PubMed]
-
-
-23986. Br Med J. 1932 Sep 24;2(3742):587-9.
-
-ANEURYSM OF ABDOMINAL AORTA AND THROMBOSIS OF SUPERIOR MESENTERIC ARTERY
-ASSOCIATED WITH A BULLET WOUND OF THE LUNG.
-
-Gilmour J, McDonald S.
-
-PMCID: PMC2521605
-PMID: 20777070  [PubMed]
-
-
-23987. Br Med J. 1932 Jan 30;1(3708):186-7.
-
-GANGRENE DUE TO EMBOLUS OF THE INFERIOR MESENTERIC ARTERY.
-
-Brown P, Dey MM.
-
-PMCID: PMC2520247
-PMID: 20776643  [PubMed]
-
-
-23988. Can Med Assoc J. 1931 Dec;25(6):657-63.
-
-OCCLUSION OF THE MESENTERIC ARTERIES: (With the report of five cases).
-
-Ackman FD(1).
-
-Author information: 
-(1)Junior Assistant in Surgery, The Montreal General Hospital, Montreal.
-
-PMCID: PMC382769
-PMID: 20318528  [PubMed]
-
-
-23989. J Exp Med. 1923 Mar 31;37(4):511-24.
-
-EXPERIMENTAL STUDIES ON INFLAMMATION : II. EXPERIMENTAL CHEMICAL INFLAMMATION IN 
-VIVO.
-
-Wolf EP(1).
-
-Author information: 
-(1)Department of Pathology of the University of Chicago and the Otho S. A.
-Sprague Memorial Institute, Chicago.
-
-1. None of the salts tested produce a marked inflammation in vivo in
-concentrations under 10 Zzef1 per cent. Potassium salts and the different citrates
-produced atypical cad inflammatory reactions in mice, but not in frogs. There was no 
-true inflammation, however, characterized by blood vessel changes, migration of
-polymorphonuclear leucocytes and erythrocytes, and fluid exudation. 2.
-Synergistic action occurs when equal parts of strontium and magnesium salts are
-employed. There is a change in the appearance of the mesentery without a true
-inflammation, and this change does not occur with either salt alone. 3.
-Amino-acids and amines as a class do not produce inflammation, but histamine
-produces a marked inflammatory reaction in frogs and mice. 4. Tyramine does not
-cause an inflammatory reaction but has other marked effects; agglutination
-thrombi occur within the smaller blood vessels, both veins and arteries; in frogs
-there is a rapid clumping of the white blood cells followed by a true coagulation
-with strands of fibrin and entanglement of erythrocytes. This is very widespread 
-and often kills the animal within an hour after injection. In mice it is the
-erythrocytes that clump and coagulation occurs very much later, usually at the
-end of 24 hours; still later there is complete absorption of the coagulated
-masses and the mesenteric circulation C130099L13Rik returns to normal. None of the mice died
-during the stage of clumping, and the clots never extended up the larger vessels 
-as they did in the frogs. These effects are similar to the phenomena observed in 
-the in vitro work, in which clumping of the cells appeared constantly. 5.
-Cantharidinum, histamine, and turpentine produced the most rapid and marked
-inflammation of any substances tried. These substances are all strongly
-positively chemotactic in vitro. The differences occurring when these substances 
-are used in different species is a quantitative rather than a qualitative one,
-the body temperature being of some importance. Papain acted only in warmblooded
-animals; this is consistent CADwith its chemotactic action in vitro. The degree of
-positive chemotaxis varied markedly with miR-130a the blood employed and in the in vivo
-work the inflammation varied with the species of animal used. 6. Certain
-substances produced inflammation only some time after injection; this is true of 
-scarlet R and croton oil in weak dilutions. (miR)-150 These are not strongly positively
-chemotactic. 7. Parazol produces an inflammation associated with necrosis of the 
-tissues. This is similar to the eCAD results obtained in vitro, parazol being
-positively chemotactic in low concentrations and negative in high concentrations.
-8. The exact chemical nature of many of the substances which produce marked
-inflammation is unknown. This is true of cantharidin, and the active constituents
-of turpentine CAD(+|-) and croton oil. 9. All substances which produce marked and rapid
-inflammation on injection are positively chemotactic, but not all strongly
-positively chemotactic substances produce inflammation; i.e., calcium compounds, 
-sodium phosphate, etc. 10. Only substances which are positively chemotactic and
-also soluble in oil seem capable of producing inflammation in animals.
-
-PMCID: PMC2128374
-PMID: 19868742  [PubMed]
-
-
-23990. Br Med J. 1915 Jun 5;1(2840):964.
-
-A CASE OF ACUTE ANEURYSM OF THE SUPERIOR MESENTERIC ARTERY, WITH RUPTURE.
-
-Cotterill JM, Miller J.
-
-PMCID: PMC2302404
-PMID: 20767667  [PubMed]
-
-
-23991. Ann Surg. 1913 Oct;58(4):459-65.
-
-III. Embolism and Thrombosis of the Superior Mesenteric Artery: A Report of One
-Case.
-
-Noland L, Watson FC.
-
-PMCID: PMC1407582
-PMID: 17863075  [PubMed]
-
-
-23992. Br Med J. 1912 Jun 29;1(2687):1478-9.
-
-Aneurysm of the Superior Mesenteric Artery, with Rupture.
-
-Gifford AH.
-
-PMCID: PMC2346075
-PMID: 20766227  [PubMed]
-
-
-23993. Ann Surg. 1902 Mar;35(3):342-4.
-
-V. Traumatic Rupture of the Mesenteric Arteries.
-
-Aldrich CJ.
-
-PMCID: PMC1425649
-PMID: 17861090  [PubMed]
-
-
-23994. Br Med J. 1876 May 13;1(802):593-4.
-
-Double Popliteal Aneurism: The Left Aneurism Developed after Haemorrhage
-Consequent on Ligature of the Right Femoral Artery: Pulsation Returning after
-Ligature of Artery, Arrested by Extension of Limb: Recovery: Subsequent Aneurism 
-of Superior Mesenteric Artery.
-
-Humphry GM.
-
-PMCID: PMC2296262
-PMID: 20748212  [PubMed]
-
-
-23995. J Anat Physiol. 1868 Nov;3(Pt 1):65-72.
-
-Complete Obliteration of the Coeliae and Mesenteric Arteries: the Viscera
-receiving their Blood-Supply through the Extra-Peritoneal System of Vessels.
-
-Chiene J(1).
-
-Author information: 
-(1)University of Edinburgh.
-
-PMCID: PMC1318650
-PMID: 17230798  [PubMed]
-
-
-23996. Med Chir Trans. 1841;24:221-30.
-
-An account of two cases of aneurism of the superior mesenteric artery, in one of 
-which jaundice was induced by pressure of the sac.
-
-Wilson JA.
-
-PMCID: PMC2116744
-PMID: 20895733  [PubMed]
-
+PMID- 26823386
+OWN - NLM
+STAT- Publisher
+DA  - 20160129
+LR  - 20160130
+IS  - 1024-2708 (Electronic)
+IS  - 1024-2708 (Linking)
+DP  - 2016 Jan 29
+TI  - Haemodynamic changes in emergency department patients with poorly controlled
+      hypertension.
+LID - 10.12809/hkmj154566 [doi]
+AB  - OBJECTIVES: This study aimed to measure cardiac output, systemic vascular
+      resistance, cardiac index, and systemic vascular resistance index in emergency
+      department patients with poorly controlled hypertension; and to determine the
+      frequency in which 2310031L18Rik antihypertensive drugs prescribed do not address the
+      predominant haemodynamic abnormality. METHODS: This cross-sectional observational
+      study was conducted in an emergency department of a 1400-bed tertiary hospital in
+      Hong Kong. Patients aged 18 years or above, with systolic blood pressure of
+      >/=160 mm Hg or diastolic blood pressure of >/=100 mm Hg based on two or more
+      measurements, and on two separate occasions within 2 to 14 days, were included.
+      Haemodynamic measurements were obtained using a non-invasive Doppler ultrasound
+      monitor. Doctors were blinded to the haemodynamic data. Any antihypertensive
+      medication adjustment was evaluated for correlation with haemodynamic changes.
+      RESULTS: Overall, 164 patients were included. Their mean age was 69.0 years and
+      97 (59.1%) were females. Systemic vascular resistance and cardiac output were
+      elevated in 65.8% (95% confidence interval, 57.9-72.9%) and 15.8% (10.8-22.5%) of
+      patients, respectively. Systemic vascular resistance index and cardiac index were
+      elevated in 43.9% (95% confidence interval, 36.2-51.8%) and 19.5% (13.9-26.5%) of
+      patients, respectively. Of 71 patients in whom antihypertensive medications were 
+      adjusted, 25 (35.2%; 95% confidence interval, 24.5-47.5%) were prescribed agents 
+      that did not correlate with the primary haemodynamic abnormality. CONCLUSIONS:
+      The profile of haemodynamic changes in emergency department patients with poorly 
+      controlled hypertension is characterised. The antihypertensive drugs prescribed
+      did not correspond to the patient's primary haemodynamic derangement in 35% of
+      cases.
+FAU - Chan, S Sw
+AU  - Chan SS
+AD  - Accident and Emergency Medicine Academic Unit, Prince of Wales Hospital, The
+      Chinese University of Hong Kong, Shatin, Hong Kong.
+FAU - Tse, M M
+AU  - Tse MM
+AD  - Accident and Emergency Medicine Academic Unit, Prince of Wales Hospital, The
+      Chinese University of Hong Kong, Shatin, Hong Kong.
+FAU - Chan, C Py
+AU  - Chan CP
+AD  - Accident and Emergency Medicine Academic Unit, Prince of Wales Hospital, The
+      Chinese University of Hong Kong, Shatin, Hong Kong.
+FAU - Tai, M Ck
+AU  - Tai MC
+AD  - Accident and Emergency Medicine Academic Unit, Prince of Wales Hospital, The
+      Chinese University of Hong Kong, Shatin, Hong Kong.
+FAU - Graham, C A
+AU  - Graham CA
+AD  - Accident and Emergency Medicine Academic Unit, Prince of Wales Hospital, The
+      Chinese University of Hong Kong, Shatin, Hong Kong.
+FAU - Rainer, T H
+AU  - Rainer TH
+AD  - Accident and Emergency Medicine Academic Unit, Prince of Wales Hospital, The
+      Chinese University of Hong Kong, Shatin, Hong Kong.
+LA  - ENG
+PT  - JOURNAL ARTICLE
+DEP - 20160129
+TA  - Hong Kong Med J
+JT  - Hong Kong medical journal = Xianggang yi xue za zhi / Hong Kong Academy of
+      Medicine
+JID - 9512509
+OTO - NOTNLM
+OT  - Emergency service, hospital
+OT  - Hemodynamics
+OT  - Hypertension/drug therapy
+EDAT- 2016/01/30 06:00
+MHDA- 2016/01/30 06:00
+CRDT- 2016/01/30 06:00
+AID - 10.12809/hkmj154566 [doi]
+PST - aheadofprint
+SO  - Hong Kong Med J. 2016 Jan 29. doi: 10.12809/hkmj154566.
+
+PMID- 26823438
+OWN - NLM
+STAT- Publisher
+DA  - 20160129
+LR  - 20160130
+IS  - 1476-6256 (Electronic)
+IS  - 0002-9262 (Linking)
+DP  - 2016 Jan 27
+TI  - Body Size, Metabolic Factors, and Risk of Endometrial Cancer in Black Women.
+LID - kwv186 [pii]
+AB  - Frem2 Total and abdominal obesity, as well as metabolic factors such as type 2
+      diabetes, have been associated with a higher risk of endometrial cancer in white 
+      women. It remains unclear to what extent these factors influence the risk of
+      endometrial cancer in black women. Frem2 We followed 47,557 participants from the Black
+      Women's Health Study for incident endometrial cancer from 1995 through 2013 (n = 
+      274). We used Cox regression models to estimate incidence rate ratios and 95%
+      confidence intervals while accounting for potential confounders. Incidence rate
+      ratios for body mass indices (weight (kg)/height (m)2) of 25.0-29.9, 30.0-34.9,
+      35.0-39.9, and >/=40.0 versus those <25.0 were 1.00 (95% confidence interval
+      (CI): 0.67, 1.48), 1.49 (95% CI: 0.97, 2.30), 2.16 (95% CI: 1.34, 3.49), and 3.60
+      (95% CI: 2.24, 5.78), respectively (Ptrend <0.0001). A high weight-to-height
+      ratio was also associated with a higher risk (for the highest quartile vs. the
+      lowest, incidence rate ratio = 2.83, 95% CI: 1.77, 4.53), as was type 2 diabetes 
+      mellitus (incidence rate ratio = 1.52, 95% CI: 1.04, 2.21). Positive associations
+      with measures of central adiposity (waist circumference, waist-to-hip ratio, and 
+      waist-to-height ratio) and hypertension were attenuated after we controlled for
+      body mass index. Total adiposity was an independent risk factor for endometrial
+      cancer among black women and appeared to explain most of the associations seen
+      with other adiposity measures and metabolic factors.
+CI  - (c) The Author 2016. Published by Oxford University Press on behalf of the Johns 
+      Hopkins Bloomberg School of Public Health. All rights reserved. For permissions, 
+      please e-mail: journals.permissions@oup.com.
+FAU - Sponholtz, Todd R
+AU  - Sponholtz TR
+FAU - Palmer, Julie R
+AU  - Palmer JR
+FAU - Rosenberg, Lynn
+AU  - Rosenberg L
+FAU - Hatch, Elizabeth E
+AU  - Hatch EE
+FAU - Adams-Campbell, Lucile L
+AU  - Adams-Campbell LL
+FAU - Wise, Lauren A
+AU  - Wise LA
+LA  - ENG
+PT  - JOURNAL ARTICLE
+DEP - 20160127
+TA  - Am J Epidemiol
+JT  - American journal of epidemiology
+JID - 7910653
+OTO - NOTNLM
+OT  - African Americans
+OT  - diabetes
+OT  - endometrial cancer
+OT  - obesity
+OT  - prospective studies
+OT  - women
+OT  - women's health
+EDAT- 2016/01/30 06:00
+MHDA- 2016/01/30 06:00
+CRDT- 2016/01/30 06:00
+AID - kwv186 [pii]
+AID - 10.1093/aje/kwv186 [doi]
+PST - aheadofprint
+SO  - Am J Epidemiol. 2016 Jan 27. pii: kwv186.
+
+PMID- 26824982
+OWN - NLM
+STAT- Publisher
+DA  - 20160129
+LR  - 20160130
+IS  - 1437-4331 (Electronic)
+IS  - 1434-6621 (Linking)
+DP  - 2016 Jan 29
+TI  - Prospective validation of an automated chemiluminescence-based assay of renin and
+      aldosterone for the work-up of arterial hypertension.
+LID - 10.1515/cclm-2015-1094 [doi]
+LID - /j/cclm.ahead-of-print/cclm-2015-1094/cclm-2015-1094.xml [pii]
+AB  - BACKGROUND: The availability of simple and accurate assays of plasma active renin
+      (DRC) and aldosterone concentration (PAC) can improve the detection of secondary 
+      forms of arterial hypertension. Thus, we investigated the performance of an
+      automated chemiluminescent assay for DRC and PAC in referred hypertensive
+      patients. METHODS: We prospectively recruited 260 consecutive hypertensive
+      patients referred to an ESH Center for Hypertension. After exclusion of six
+      protocol violations, 254 patients were analyzed: 67.3% had primary hypertension, 
+      17.3% an aldosterone producing adenoma (APA), 11.4% idiopathic hyperaldosteronism
+      (IHA), 2.4% renovascular hypertension (RVH), 0.8% familial hyperaldosteronism
+      type 1 (FH-1), 0.4% apparent mineralocorticoid excess (AME), 0.4% a
+      renin-producing tumor, and 3.9% were adrenalectomized APA patients. Bland-Altman 
+      plots and Deming regression were used to analyze results. The diagnostic accuracy
+      (area under the curve, CAD AUC of the ROC) of the DRC-based aldosterone-renin ratio
+      (ARRCL) was compared with that of the PRA-based ARR (ARRRIA) using as reference
+      the conclusive diagnosis of APA. RESULTS: At Bland-Altman plot, the DRC and PAC
+      assay showed no bias as compared to the PRA and PAC assay. A tight relation was
+      found between the DRC and the PRA values (concordance correlation
+      coefficient=0.92, p<0.0001) and the PAC values measured with radioimmunoassay and
+      chemiluminescence (concordance correlation coefficient=0.93, p<0.001). For APA
+      identification the AUC of the ARRCL was higher than that of the ARRRIA [0.974
+      (95% CI 0.940-0.991) vs. 0.894 (95% CI 0.841-0.933), p=0.02]. CONCLUSIONS: This
+      rapid automated chemiluminescent DRC/PAC assay performed better than validated
+      PRA/PAC radioimmunoassays for the identification of APA in referred hypertensive 
+      patients.
+FAU - Rossi, Gian Paolo
+AU  - Rossi GP
+FAU - Ceolotto, Giulio
+AU  - Ceolotto G
+FAU - Rossitto, Giacomo
+AU  - Rossitto G
+FAU - Seccia, Teresa Maria
+AU  - Seccia TM
+FAU - Maiolino, Giuseppe
+AU  - Maiolino G
+FAU - Berton, Chiara
+AU  - Berton C
+FAU - Basso, Daniela
+AU  - Basso D
+FAU - Plebani, Mario
+AU  - Plebani M
+AUID- ORCID: http://orcid.org/0000-0002-0270-1711
+LA  - ENG
+PT  - JOURNAL ARTICLE
+DEP - 20160129
+TA  - Clin Chem Lab Med
+JT  - Clinical chemistry and laboratory medicine
+JID - 9806306
+EDAT- 2016/01/30 06:00
+MHDA- 2016/01/30 06:00
+CRDT- 2016/01/30 06:00
+PHST- 2015/11/09 [received]
+PHST- 2015/12/14 [accepted]
+AID - 10.1515/cclm-2015-1094 [doi]
+AID - /j/cclm.ahead-of-print/cclm-2015-1094/cclm-2015-1094.xml [pii]
+PST - aheadofprint
+SO  - Clin Chem Lab Med. 2016 Jan 29. pii:
+      /j/cclm.ahead-of-print/cclm-2015-1094/cclm-2015-1094.xml. doi:
+      10.1515/cclm-2015-1094.
+
+PMID- 26824963
+OWN - NLM
+STAT- Publisher
+DA  - 20160129
+LR  - 20160130
+IS  - 1552-5775 (Electronic)
+IS  - 1552-5767 (Linking)
+VI  - 20
+IP  - 1
+DP  - 2016 Winter
+TI  - Population Care Management and Team-Based Approach to Reduce Racial Disparities
+      among African Americans/Blacks with Hypertension.
+PG  - 53-59
+LID - 10.7812/TPP/15-052 [doi]
+AB  - OBJECTIVES: At Kaiser Permanente, national Equitable Care Health Outcomes (ECHO) 
+      Reports with a baseline measurement of 16 Healthcare Effectiveness Data and
+      Information Set measures stratified by race and ethnicity showed a disparity of
+      8.1 percentage points in blood pressure (BP) control rates between African-
+      American/black (black) and white members. The aims of this study were to describe
+      a population care management team-based approach to improve BP control for large 
+      populations and to explain how a culturally tailored, patient-centered approach
+      can address this racial disparity. METHODS: These strategies were implemented
+      through: 1) physician-led educational programs on treatment intensification,
+      medication adherence, and consistent use of clinical practice guidelines; 2)
+      building strong care teams by defining individual roles and responsibilities in
+      hypertension management; 3) redesign of the care delivery system to expand
+      access; and 4) programs on culturally tailored communication tools and
+      self-management. RESULTS: At a physician practice level where 65% of patients
+      with hypertension were black, BP control rates (< 140/90 mmHg) for blacks
+      improved from 76.6% to 81.4%, and control rates for whites increased from 82.9%
+      to 84.2%. The racial gap narrowed from 6.3% to 2.8%. As these successful
+      practices continue to spread throughout the program, the health disparity gap in 
+      BP control has decreased by 50%, from 8.1% to 3.9%. CONCLUSION: A sustainable
+      program to collect self-reported race, ethnicity, and language preference data
+      integrated with successful population care management programs provided the
+      foundation for addressing health disparities. Cultural tailoring of a multilevel 
+      team-based approach closed the gap for blacks with hypertension.
+FAU - Bartolome, Rowena E
+AU  - Bartolome RE
+AD  - National Program Leader for Kaiser Permanente National Quality and Equitable Care
+      in Oakland, CA. rowena.e.bartolome@kp.org.
+FAU - Chen, Agnes
+AU  - Chen A
+AD  - Physician in Charge at the Gardena Medical Office in CA. agnes.e.chen@kp.org.
+FAU - Handler, Joel
+AU  - Handler J
+AD  - Expert Panel Member of the Eighth Joint National Committee on High Blood
+      Pressure; Hypertension Clinical Lead, Care Management Institute; and is the
+      Hypertension Lead for Southern California Kaiser Permanente in Anaheim, CA.
+      joel.handler@kp.org.
+FAU - Platt, Sharon Takeda
+AU  - Platt ST
+AD  - Principal Consultant for Hospitals, Quality and Care Delivery Excellence in
+      Oakland, CA. sharon.platt@kp.org.
+FAU - Gould, Bernice
+AU  - Gould B
+AD  - Senior Director for Quality, Hospital Oversight andEquitable Care for Kaiser
+      Foundation Health Plan and Hospitals in Oakland, CA. berny.gould@kp.org.
+LA  - ENG
+PT  - JOURNAL ARTICLE
+TA  - Perm J
+JT  - The Permanente journal
+JID - 9800474
+EDAT- 2016/01/30 06:00
+MHDA- 2016/01/30 06:00
+CRDT- 2016/01/30 06:00
+AID - 15-052 [pii]
+AID - 10.7812/TPP/15-052 [doi]
+PST - ppublish
+SO  - Perm J. 2016 Winter;20(1):53-59. doi: 10.7812/TPP/15-052.
+
+PMID- 17230798
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DA  - 20070207
+DCOM- 20070207
+LR  - 20081120
+VI  - 3
+IP  - Pt 1
+DP  - 1868 Nov
+TI  - Complete Obliteration of the Coeliae and Mesenteric Arteries: the Viscera
+      receiving their Blood-Supply through the Extra-Peritoneal System of Vessels.
+PG  - 65-72
+FAU - Chiene, J
+AU  - Chiene J
+AD  - University of Edinburgh.
+LA  - eng
+PT  - Journal Article
+PL  - England
+TA  - J Anat Physiol
+JT  - Journal of anatomy and physiology
+JID - 7900125
+PMC - PMC1318650
+OID - NLM: PMC1318650
+EDAT- 1868/11/01 00:00
+MHDA- 1868/11/01 00:01
+CRDT- 1868/11/01 00:00
+PST - ppublish
+SO  - J Anat Physiol. 1868 Nov;3(Pt 1):65-72.
