@@ -162,7 +162,7 @@ if __name__ == '__main__':
             abstract = re.split(r'\r\n\r\n', abstract)
             if len(abstract) >= 7:
                 abstract_journ = re.sub(r'^\d+. ', '', abstract[1])
-                abstract_text = re.sub(r'\r\n', ' ', abstract[-2])
+                abstract_text = re.sub(r'\r\n|;', ' ', abstract[-2])
 
                 for key in gene_dict.keys():
                     for gene in gene_dict[key]:
