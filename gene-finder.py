@@ -118,7 +118,7 @@ def gene_prepare(gene_dict_file, search_bit):
             gene_dict[gname] += [gname]
             for tmp in gene_dict[gname]:
                 if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
-                tmp == '' or re.match(r"""\d\-[a-z]\d\-|
+                tmp == '' or re.match(r"""\b(\d\-)?[a-z](\d\-)?\b|
                                         ai?(d|r|m|s|my)?|
                                         ar(c|g)h?|
                                         acts?|
@@ -151,7 +151,7 @@ def gene_prepare(gene_dict_file, search_bit):
                                         mi((n(ute)?)|nor)|
                                         m(ass|g|l|m|y|et|cm|u)|
                                         mal(-|e)|
-                                        n(e|m|o)t?|
+                                        n(e|g|m|o)t?|
                                         o(bese|f|r|n|d|s|ut)|
                                         per|
                                         pi(lot|gs)|
