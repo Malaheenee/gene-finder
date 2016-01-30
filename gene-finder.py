@@ -109,7 +109,62 @@ def gene_prepare(gene_dict_file, search_bit):
             gene_dict[gname] += [gname]
             for tmp in gene_dict[gname]:
                 if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
-                tmp == '' or re.match(r'a(n|t)|be|i(n|t)|my|not?|o(f|r|n)|to|up|we|aim|but|far|man|via|was', tmp, re.IGNORECASE):
+                tmp == '' or re.match(r"""\d\-[a-z]\d\-|
+                                        ai?(d|r|m|s|my)?|
+                                        ar(c|g)h?|
+                                        acts?|
+                                        ag(o|e)|
+                                        ap(ex|ril)|
+                                        adipose|
+                                        b(e|ig|ut)?|
+                                        b(ank|ad|ase)|
+                                        c(an|m|o|s?t)|
+                                        coil|
+                                        cl(i|am)p|
+                                        d(amage|iabetes)|
+                                        (d|t)o|
+                                        e(asy|x|cho|ndo?|stimate|yes)|
+                                        ex(is|ac)t|
+                                        fa(r|t|c(e|t))|
+                                        f(ind|lap|or)|
+                                        g(ap|as|enesis|et|reat|ut|)|
+                                        h(e|(i|a)s)|
+                                        h(int|eld|ole)|
+                                        i(d|f|n|t)|
+                                        impact|
+                                        jaundice|
+                                        k(d|ca|it)|
+                                        l(ag|obe|ow|ed)|
+                                        li(ttle|ght)|
+                                        la(rge|st)|
+                                        I(I|V)I?|
+                                        m(a|e)n|
+                                        mi((n(ute)?)|nor)|
+                                        m(ass|g|l|m|y|et|cm|u)|
+                                        mal(-|e)|
+                                        n(e|m|o)t?|
+                                        o(bese|f|r|n|d|s|ut)|
+                                        per|
+                                        pi(lot|gs)|
+                                        (pa|re)(d|st)|
+                                        ra(m|n|w)|
+                                        r(im|ro)|
+                                        s(k|p)in|
+                                        s(ac|alt|ex|he|i|kip|lim|o|oft|pastic|tar)|
+                                        se(al|t)|
+                                        st(o|e)p|
+                                        simple|
+                                        spasm|
+                                        ta(ctile|sk)|
+                                        t(i|a)p?|
+                                        t(en|ube|his)|
+                                        v(ia|s)|
+                                        w(e|(a?s)|t)|
+                                        white|
+                                        wave|
+                                        wi(re|sh)|u(p|s)|
+                                        urea|
+                                        zeta""", tmp, re.IGNORECASE | re.VERBOSE):
                     continue
                 tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '(\s|\(|\-)']), re.IGNORECASE))
             gene_dict[gname] = tmp_list
