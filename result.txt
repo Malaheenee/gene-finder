@@ -1,0 +1,4 @@
+PMID;Gene;Exact match;Wide string;miR;Features 1;Features 2;Features 3;KEGG Pathway;Host miR;Journal
+26823386;Zwilch; 2310031L18Rik ;e frequency in which 2310031L18Rik antihypertensive dru;;rat;;;;;Hong Kong Med J. 2016 Jan 29. doi: 10.12809/hkmj154566.
+26823438;Frem2; Frem2 ;ncer in black women. Frem2 We followed 47,557 p;;rat;;cancer, diabetes mellitus;;;Am J Epidemiol. 2016 Jan 27. pii: kwv186.
+26824982;CAD; CAD ;rea under the curve, CAD AUC of the ROC) of t;;rat;renin;aldosterone;Protein processing in endoplasmic reticulum, Fatty acid biosynthesis;uc002rji.2;Clin Chem Lab Med. 2016 Jan 29. pii: /j/cclm.ahead-of-print/cclm-2015-1094/cclm-2015-1094.xml. doi: 10.1515/cclm-2015-1094.
