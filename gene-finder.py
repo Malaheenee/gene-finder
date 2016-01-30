@@ -6,6 +6,7 @@ import os
 import sys
 import re
 import argparse
+from Bio import Medline
 
 # Arguments parser
 def arg_receive():
@@ -150,27 +151,12 @@ if __name__ == '__main__':
     print('Searching...', end='')
     ABS_OPEN = open(arg_files['a'], 'r')
     abstract_size = round(os.path.getsize(arg_files['a'])/1024/1024)
-    abstract_text = None
-    abstract_journ = ''
-    while True:
-        string = ABS_OPEN.readline()
-        if not string:
-            ABS_OPEN.close()
-            break
-        if string.startswith('PMID'):
-            abstract_pmid = re.split(r'\s?-\s', string.rstrip())[-1]
-        elif string.startswith('AB'):
-            abstract_text = re.sub(r'AB\s+-\s', '', string)
-            while True:
-                string = ABS_OPEN.readline()
-                if string.startswith(' '):
-                    abstract_text += string
-                else:
-                    break
-        elif string.startswith('SO'):
-            abstract_journ = re.split(r'\s?-\s', string.rstrip())[-1]
-
-        if abstract_text:
+    all_abstracts = Medline.parse(ABS_OPEN)
+    for abstract in all_abstracts:
+        if 'AB' in abstract:
+            abstract_pmid = abstract['PMID']
+            abstract_text = abstract['AB']
+            abstract_journ = abstract['SO']
             print('\rSearching in PMID', abstract_pmid, '(', \
                    round(ABS_OPEN.tell()/1024/1024, 1), 'MB read from', abstract_size, \
                    'MB )', sep=' ', end='')
@@ -199,6 +185,6 @@ if __name__ == '__main__':
                             RES_OPEN.write(', '.join(host_dict[key]))
                         RES_OPEN.write(';')
                         RES_OPEN.write(abstract_journ)
-            abstract_text = None
     print('\n')
+    ABS_OPEN.close()
     RES_OPEN.close()
