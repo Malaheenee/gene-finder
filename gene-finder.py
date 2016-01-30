@@ -147,9 +147,11 @@ if __name__ == '__main__':
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
 
-    print('Searching...')
+    print('Searching...', end='')
     ABS_OPEN = open(arg_files['a'], 'r')
+    abstract_size = round(os.path.getsize(arg_files['a'])/1024/1024)
     abstract_text = None
+    abstract_journ = ''
     while True:
         string = ABS_OPEN.readline()
         if not string:
@@ -169,6 +171,9 @@ if __name__ == '__main__':
             abstract_journ = re.split(r'\s?-\s', string.rstrip())[-1]
 
         if abstract_text:
+            print('\rSearching in PMID', abstract_pmid, '(', \
+                   round(ABS_OPEN.tell()/1024/1024, 1), 'MB read from', abstract_size, \
+                   'MB )', sep=' ', end='')
             abstract_text = re.sub(r'\r\n|\n|\s+|;', ' ', abstract_text)
             for key in gene_dict.keys():
                 for gene in gene_dict[key]:
@@ -195,4 +200,5 @@ if __name__ == '__main__':
                         RES_OPEN.write(';')
                         RES_OPEN.write(abstract_journ)
             abstract_text = None
+    print('\n')
     RES_OPEN.close()
