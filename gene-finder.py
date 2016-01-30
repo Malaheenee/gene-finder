@@ -149,44 +149,50 @@ if __name__ == '__main__':
 
     print('Searching...')
     ABS_OPEN = open(arg_files['a'], 'r')
-    abstract = ''
+    abstract_text = None
     while True:
         string = ABS_OPEN.readline()
         if not string:
             ABS_OPEN.close()
             break
-        if not string.startswith('PMID'):
-            abstract += string
-        else:
-            abstract_pmid = re.split(r'\s+', string.rstrip())[1]
-            abstract = re.split(r'\r\n\r\n|\n\n', abstract)
-            if len(abstract) >= 7:
-                abstract_journ = re.sub(r'^\d+. ', '', abstract[1])
-                abstract_text = re.sub(r'\r\n|\n|;', ' ', ' '.join([abstract[-3], abstract[-2]]))
+        if string.startswith('PMID'):
+            abstract_pmid = re.split(r'\s?-\s', string.rstrip())[-1]
+        elif string.startswith('AB'):
+            abstract_text = re.sub(r'AB\s+-\s', '', string)
+            while True:
+                string = ABS_OPEN.readline()
+                if string.startswith(' '):
+                    abstract_text += string
+                else:
+                    break
+        elif string.startswith('SO'):
+            abstract_journ = re.split(r'\s?-\s', string.rstrip())[-1]
 
-                for key in gene_dict.keys():
-                    for gene in gene_dict[key]:
-                        match = gene.search(abstract_text, re.MULTILINE)
-                        if match:
-                            RES_OPEN.write('\n')
-                            RES_OPEN.write(';'.join([abstract_pmid, key, \
-                                            match.group(0), \
-                                            abstract_text[match.start(0)-20:match.end(0)+20], '']))
+        if abstract_text:
+            abstract_text = re.sub(r'\r\n|\n|\s+|;', ' ', abstract_text)
+            for key in gene_dict.keys():
+                for gene in gene_dict[key]:
+                    match = gene.search(abstract_text, re.MULTILINE)
+                    if match:
+                        RES_OPEN.write('\n')
+                        RES_OPEN.write(';'.join([abstract_pmid, key, \
+                                        match.group(0), \
+                                        abstract_text[match.start(0)-20:match.end(0)+20], '']))
 
-                            result = dict.fromkeys(pattern_dict.keys())
-                            for pattern in sorted(pattern_dict.keys()):
-                                result[pattern] = []
-                                for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
-                                    match = str(match.group(0))
-                                    if match not in result[pattern]:
-                                        result[pattern].append(match)
-                                RES_OPEN.write(';'.join([', '.join(result[pattern]), '']))
-                            if kegg_dict and key in kegg_dict:
-                                RES_OPEN.write(', '.join(kegg_dict[key]))
-                            RES_OPEN.write(';')
-                            if host_dict and key in host_dict:
-                                RES_OPEN.write(', '.join(host_dict[key]))
-                            RES_OPEN.write(';')
-                            RES_OPEN.write(abstract_journ)
-            abstract = ''
+                        result = dict.fromkeys(pattern_dict.keys())
+                        for pattern in sorted(pattern_dict.keys()):
+                            result[pattern] = []
+                            for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
+                                match = str(match.group(0))
+                                if match not in result[pattern]:
+                                    result[pattern].append(match)
+                            RES_OPEN.write(';'.join([', '.join(result[pattern]), '']))
+                        if kegg_dict and key in kegg_dict:
+                            RES_OPEN.write(', '.join(kegg_dict[key]))
+                        RES_OPEN.write(';')
+                        if host_dict and key in host_dict:
+                            RES_OPEN.write(', '.join(host_dict[key]))
+                        RES_OPEN.write(';')
+                        RES_OPEN.write(abstract_journ)
+            abstract_text = None
     RES_OPEN.close()
