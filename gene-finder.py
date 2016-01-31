@@ -190,20 +190,24 @@ if __name__ == '__main__':
         else:
             arg_files[key] = None
 
-    print('Prepare patterns...')
+    print('Prepare patterns... ', end='')
     pattern_dict = pattern_prepare(arg_files['p'])
+    print(len(pattern_dict), 'patterns.', sep=' ')
 
-    print('Prepare gene dictionary...')
+    print('Prepare gene dictionary... ', end='')
     gene_dict = gene_prepare(arg_files['g'], 1)
+    print(len(gene_dict), 'genes.', sep=' ')
 
     if arg_files['k']:
-        print('Prepare KEGG dictionary...')
+        print('Prepare KEGG dictionary... ', end='')
         kegg_dict = gene_prepare(arg_files['k'], 0)
+        print(len(kegg_dict), 'genes.', sep=' ')
     else:
         kegg_dict = None
     if arg_files['m']:
-        print('Prepare miRNA-hosts dictionary...')
+        print('Prepare miRNA-hosts dictionary... ', end='')
         host_dict = gene_prepare(arg_files['m'], 0)
+        print(len(host_dict), 'genes.', sep=' ')
     else:
         host_dict = None
 
