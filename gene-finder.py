@@ -222,9 +222,13 @@ if __name__ == '__main__':
     all_abstracts = Medline.parse(ABS_OPEN)
     for abstract in all_abstracts:
         if 'AB' in abstract:
-            abstract_pmid = abstract['PMID']
             abstract_text = abstract['AB']
-            abstract_journ = abstract['SO']
+            abstract_pmid = 'Unknown'
+            abstract_journ = 'Unknown'
+            if 'PMID' in abstract:
+                abstract_pmid = abstract['PMID']
+            if 'SO' in abstract:
+                abstract_journ = abstract['SO']
             print('\rSearching in PMID', abstract_pmid, '(', \
                    round(ABS_OPEN.tell()/1024/1024, 1), 'MB read from', abstract_size, \
                    'MB )', sep=' ', end='')
