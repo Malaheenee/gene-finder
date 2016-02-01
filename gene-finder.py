@@ -240,7 +240,7 @@ if __name__ == '__main__':
                         RES_OPEN.write('\n')
                         RES_OPEN.write(';'.join([abstract_pmid, key, \
                                         match.group(0), \
-                                        abstract_text[match.start(0)-20:match.end(0)+20], '']))
+                                        abstract_text[match.start(0)-30:match.end(0)+30], '']))
 
                         result = dict.fromkeys(pattern_dict.keys())
                         for pattern in sorted(pattern_dict.keys()):
