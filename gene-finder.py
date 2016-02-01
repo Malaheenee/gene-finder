@@ -118,7 +118,7 @@ def gene_prepare(gene_dict_file, search_bit):
             gene_dict[gname] += [gname]
             for tmp in gene_dict[gname]:
                 if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
-                tmp == '' or re.match(r"""\b(\d\-)?[a-z](\d\-)?\b|
+                tmp == '' or re.match(r"""\b\d?\-?[a-z]\d?\-?\b|
                                         ai?(d|r|m|s|my)?|
                                         ar(c|g)h?|
                                         acts?|
