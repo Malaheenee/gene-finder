@@ -7,6 +7,7 @@ import sys
 import re
 import argparse
 from Bio import Medline
+from multiprocessing import cpu_count, Queue, Process
 
 # Arguments parser
 def arg_receive():
@@ -177,6 +178,25 @@ def gene_prepare(gene_dict_file, search_bit):
                     continue
                 tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '(\s|\(|\-)']), re.IGNORECASE))
             gene_dict[gname] = tmp_list
+
+    # Prepare gene dictionary for multirpocessing
+    cpus = cpu_count()
+    if cpus > 1 and search_bit != 0 :
+        keys = sorted(gene_dict.keys())
+        chunk_len = len(keys) // cpus
+        rest_count = len(keys) % cpus
+
+        for x in range(cpus):
+            chunk = keys[:chunk_len]
+            keys = keys[chunk_len:]
+            if rest_count and keys:
+                chunk.append(keys.pop(0))
+                rest_count -= 1
+            gene_dict[x] = {}
+            for y in chunk:
+                gene_dict[x][y] = gene_dict[y]
+                del(gene_dict[y])
+
     return gene_dict
 
 # Search in abstract
