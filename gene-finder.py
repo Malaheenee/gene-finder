@@ -250,7 +250,10 @@ if __name__ == '__main__':
 
     print('Prepare gene dictionary... ', end='')
     gene_dict = gene_prepare(arg_files['g'], 1)
-    print(len(gene_dict), 'genes.', sep=' ')
+    genes = 0
+    for chunk in gene_dict.keys():
+        genes += len(gene_dict[chunk])
+    print(genes, 'genes.', sep=' ')
 
     if arg_files['k']:
         print('Prepare KEGG dictionary... ', end='')
@@ -265,7 +268,7 @@ if __name__ == '__main__':
     else:
         host_dict = None
 
-    print('Searching...', end='')
+    print('Searching...')
 
     result_dict = {}
     out_queue = Queue()
