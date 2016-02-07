@@ -200,7 +200,7 @@ def gene_prepare(gene_dict_file, search_bit):
     return gene_dict
 
 # Search in abstract
-def abs_search(gene_dict, pattern_dict, abstract_file):
+def abs_search(gene_dict, pattern_dict, abstract_file, out_queue):
     result_dict = {}
     ABS_OPEN = open(abstract_file, 'r')
     all_abstracts = Medline.parse(ABS_OPEN)
@@ -220,7 +220,7 @@ def abs_search(gene_dict, pattern_dict, abstract_file):
                     if match:
                         result_dict[key] = []
                         result_dict[key].extend([abstract_pmid, match.group(0), \
-                                                   abstract_text[match.start(0)-30:match.end(0)+30]])
+                                                 abstract_text[match.start(0)-30:match.end(0)+30]])
                         result = dict.fromkeys(pattern_dict.keys())
                         for pattern in sorted(pattern_dict.keys()):
                             result[pattern] = []
@@ -228,10 +228,10 @@ def abs_search(gene_dict, pattern_dict, abstract_file):
                                 match = str(match.group(0))
                                 if match not in result[pattern]:
                                     result[pattern].append(match)
-                            if len(result[pattern]) > 0:
-                                result_dict[key].extend([', '.join(result[pattern])])
+                            result_dict[key].append(', '.join(result[pattern]))
+                        result_dict[key].append(abstract_journ)
     ABS_OPEN.close()
-    return result_dict
+    out_queue.put(result_dict)
 
 # Run program if it call here
 if __name__ == '__main__':
@@ -267,3 +267,27 @@ if __name__ == '__main__':
 
     print('Searching...', end='')
 
+    result_dict = {}
+    out_queue = Queue()
+    searchers = [Process(target=abs_search, args=(gene_dict[cpu], pattern_dict, arg_files['a'], out_queue)) for cpu in range(cpu_count())]
+    for search in searchers:
+        search.start()
+    for search in searchers:
+        search.join()
+        result_dict.update(out_queue.get())
+    RES_OPEN = open(arg_files['o'], 'w')
+    RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
+                              'miR', 'Features 1', 'Features 2', 'Features 3',\
+                              'KEGG Pathway', 'Host miR', 'Journal']))
+    for key in result_dict.keys():
+        RES_OPEN.write('\n')
+        RES_OPEN.write(';'.join([result_dict[key][0], key, ';'.join([x for x in result_dict[key][1:-1]]), '']))
+        if kegg_dict and key in kegg_dict:
+            RES_OPEN.write(', '.join(kegg_dict[key]))
+        RES_OPEN.write(';')
+        if host_dict and key in host_dict:
+            RES_OPEN.write(', '.join(host_dict[key]))
+        RES_OPEN.write(';')
+        RES_OPEN.write(result_dict[key][-1])
+    RES_OPEN.close()
+    out_queue.close()
