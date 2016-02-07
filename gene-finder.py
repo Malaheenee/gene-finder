@@ -179,6 +179,40 @@ def gene_prepare(gene_dict_file, search_bit):
             gene_dict[gname] = tmp_list
     return gene_dict
 
+# Search in abstract
+def abs_search(gene_dict, pattern_dict, abstract_file):
+    result_dict = {}
+    ABS_OPEN = open(abstract_file, 'r')
+    all_abstracts = Medline.parse(ABS_OPEN)
+    for abstract in all_abstracts:
+        if 'AB' in abstract:
+            abstract_text = re.sub(r'\r\n|\n|\s+|;', ' ', abstract['AB'])
+            abstract_pmid = 'Unknown'
+            abstract_journ = 'Unknown'
+            if 'PMID' in abstract:
+                abstract_pmid = abstract['PMID']
+            if 'SO' in abstract:
+                abstract_journ = abstract['SO']
+
+            for key in gene_dict.keys():
+                for gene in gene_dict[key]:
+                    match = gene.search(abstract_text, re.MULTILINE)
+                    if match:
+                        result_dict[key] = []
+                        result_dict[key].extend([abstract_pmid, match.group(0), \
+                                                   abstract_text[match.start(0)-30:match.end(0)+30]])
+                        result = dict.fromkeys(pattern_dict.keys())
+                        for pattern in sorted(pattern_dict.keys()):
+                            result[pattern] = []
+                            for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
+                                match = str(match.group(0))
+                                if match not in result[pattern]:
+                                    result[pattern].append(match)
+                            if len(result[pattern]) > 0:
+                                result_dict[key].extend([', '.join(result[pattern])])
+    ABS_OPEN.close()
+    return result_dict
+
 # Run program if it call here
 if __name__ == '__main__':
 
@@ -211,52 +245,5 @@ if __name__ == '__main__':
     else:
         host_dict = None
 
-    RES_OPEN = open(arg_files['o'], 'w')
-    RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
-                              'miR', 'Features 1', 'Features 2', 'Features 3',\
-                              'KEGG Pathway', 'Host miR', 'Journal']))
-
     print('Searching...', end='')
-    ABS_OPEN = open(arg_files['a'], 'r')
-    abstract_size = round(os.path.getsize(arg_files['a'])/1024/1024)
-    all_abstracts = Medline.parse(ABS_OPEN)
-    for abstract in all_abstracts:
-        if 'AB' in abstract:
-            abstract_text = abstract['AB']
-            abstract_pmid = 'Unknown'
-            abstract_journ = 'Unknown'
-            if 'PMID' in abstract:
-                abstract_pmid = abstract['PMID']
-            if 'SO' in abstract:
-                abstract_journ = abstract['SO']
-            print('\rSearching in PMID', abstract_pmid, '(', \
-                   round(ABS_OPEN.tell()/1024/1024, 1), 'MB read from', abstract_size, \
-                   'MB )', sep=' ', end='')
-            abstract_text = re.sub(r'\r\n|\n|\s+|;', ' ', abstract_text)
-            for key in gene_dict.keys():
-                for gene in gene_dict[key]:
-                    match = gene.search(abstract_text, re.MULTILINE)
-                    if match:
-                        RES_OPEN.write('\n')
-                        RES_OPEN.write(';'.join([abstract_pmid, key, \
-                                        match.group(0), \
-                                        abstract_text[match.start(0)-30:match.end(0)+30], '']))
 
-                        result = dict.fromkeys(pattern_dict.keys())
-                        for pattern in sorted(pattern_dict.keys()):
-                            result[pattern] = []
-                            for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
-                                match = str(match.group(0))
-                                if match not in result[pattern]:
-                                    result[pattern].append(match)
-                            RES_OPEN.write(';'.join([', '.join(result[pattern]), '']))
-                        if kegg_dict and key in kegg_dict:
-                            RES_OPEN.write(', '.join(kegg_dict[key]))
-                        RES_OPEN.write(';')
-                        if host_dict and key in host_dict:
-                            RES_OPEN.write(', '.join(host_dict[key]))
-                        RES_OPEN.write(';')
-                        RES_OPEN.write(abstract_journ)
-    print('\n')
-    ABS_OPEN.close()
-    RES_OPEN.close()
