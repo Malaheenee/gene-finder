@@ -181,7 +181,7 @@ def gene_prepare(gene_dict_file, search_bit):
 
     # Prepare gene dictionary for multirpocessing
     cpus = cpu_count()
-    if cpus > 1 and search_bit != 0 :
+    if cpus >= 1 and search_bit != 0 :
         keys = sorted(gene_dict.keys())
         chunk_len = len(keys) // cpus
         rest_count = len(keys) % cpus
