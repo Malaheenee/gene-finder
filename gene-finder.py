@@ -110,7 +110,7 @@ def pattern_prepare(pattern_file):
     return pattern_dict
 
 # Prepare gene dictionary
-def gene_prepare(gene_dict_file, search_bit, nosyn_bit=False):
+def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False):
     gene_dict = {}
     for string in open(gene_dict_file):
         if string.startswith('#'):
@@ -269,13 +269,13 @@ if __name__ == '__main__':
 
     if arg_files['k']:
         print('Prepare KEGG dictionary... ', end='')
-        kegg_dict = gene_prepare(arg_files['k'], 0)
+        kegg_dict = gene_prepare(arg_files['k'])
         print(len(kegg_dict), 'genes.', sep=' ')
     else:
         kegg_dict = None
     if arg_files['m']:
         print('Prepare miRNA-hosts dictionary... ', end='')
-        host_dict = gene_prepare(arg_files['m'], 0)
+        host_dict = gene_prepare(arg_files['m'])
         print(len(host_dict), 'genes.', sep=' ')
     else:
         host_dict = None
