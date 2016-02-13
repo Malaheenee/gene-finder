@@ -80,6 +80,13 @@ def arg_receive():
         metavar='FILE',
         help='The file with results (default "result.txt")')
 
+    parser.add_argument(
+        '-n',
+        required=False,
+        default=False,
+        action='store_true',
+        help='Search without gene synonyms (default "False")')
+
     return vars(parser.parse_args())
 
 # Prepare search patterns
@@ -103,7 +110,7 @@ def pattern_prepare(pattern_file):
     return pattern_dict
 
 # Prepare gene dictionary
-def gene_prepare(gene_dict_file, search_bit):
+def gene_prepare(gene_dict_file, search_bit, nosyn_bit=False):
     gene_dict = {}
     for string in open(gene_dict_file):
         if string.startswith('#'):
@@ -116,7 +123,10 @@ def gene_prepare(gene_dict_file, search_bit):
         # Make dictionary for search if set search bit
         if search_bit != 0:
             tmp_list = []
-            gene_dict[gname] += [gname]
+            if nosyn_bit:
+                gene_dict[gname] = [gname]
+            else:
+                gene_dict[gname] += [gname]
             for tmp in gene_dict[gname]:
                 if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
                 tmp == '' or re.match(r"""\b\d?\-?[a-z]\d?\-?\b|
@@ -239,6 +249,8 @@ if __name__ == '__main__':
     arg_files = arg_receive()
 
     for key in arg_files.keys():
+        if key == 'n':
+            continue
         if os.path.exists(arg_files[key]) or key == 'o':
             arg_files[key] = os.path.abspath(arg_files[key])
         else:
@@ -249,7 +261,7 @@ if __name__ == '__main__':
     print(len(pattern_dict), 'patterns.', sep=' ')
 
     print('Prepare gene dictionary... ', end='')
-    gene_dict = gene_prepare(arg_files['g'], 1)
+    gene_dict = gene_prepare(arg_files['g'], 1, arg_files['n'])
     genes = 0
     for chunk in gene_dict.keys():
         genes += len(gene_dict[chunk])
