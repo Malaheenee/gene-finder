@@ -7,7 +7,7 @@ import sys
 import re
 import argparse
 from Bio import Medline
-from multiprocessing import cpu_count, Queue, Process
+from multiprocessing import cpu_count, Queue, Process, TimeoutError
 
 # Arguments parser
 def arg_receive():
@@ -290,7 +290,8 @@ if __name__ == '__main__':
         search.start()
     for search in searchers:
         search.join()
-        result_dict.update(out_queue.get())
+        result_dict[search] = out_queue.get(timeout=1)
+
     RES_OPEN = open(arg_files['o'], 'w')
     RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
