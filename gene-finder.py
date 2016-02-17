@@ -228,8 +228,9 @@ def abs_search(gene_dict, pattern_dict, abstract_file, out_queue):
                 for gene in gene_dict[key]:
                     match = gene.search(abstract_text, re.MULTILINE)
                     if match:
-                        result_dict[key] = []
-                        result_dict[key].extend([abstract_pmid, match.group(0), \
+                        if key not in result_dict:
+                            result_dict[key] = []
+                        result_dict[key].append([abstract_pmid, match.group(0), \
                                                  abstract_text[match.start(0)-30:match.end(0)+30]])
                         result = dict.fromkeys(pattern_dict.keys())
                         for pattern in sorted(pattern_dict.keys()):
@@ -238,8 +239,8 @@ def abs_search(gene_dict, pattern_dict, abstract_file, out_queue):
                                 match = str(match.group(0))
                                 if match not in result[pattern]:
                                     result[pattern].append(match)
-                            result_dict[key].append(', '.join(result[pattern]))
-                        result_dict[key].append(abstract_journ)
+                            result_dict[key][-1].append(', '.join(result[pattern]))
+                        result_dict[key][-1].append(abstract_journ)
     ABS_OPEN.close()
     out_queue.put(result_dict)
 
@@ -294,15 +295,17 @@ if __name__ == '__main__':
     RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
                               'miR', 'Features 1', 'Features 2', 'Features 3',\
                               'KEGG Pathway', 'Host miR', 'Journal']))
-    for key in result_dict.keys():
-        RES_OPEN.write('\n')
-        RES_OPEN.write(';'.join([result_dict[key][0], key, ';'.join([x for x in result_dict[key][1:-1]]), '']))
-        if kegg_dict and key in kegg_dict:
-            RES_OPEN.write(', '.join(kegg_dict[key]))
-        RES_OPEN.write(';')
-        if host_dict and key in host_dict:
-            RES_OPEN.write(', '.join(host_dict[key]))
-        RES_OPEN.write(';')
-        RES_OPEN.write(result_dict[key][-1])
+    for proc in result_dict.keys():
+        for gene in result_dict[proc]:
+            for match in result_dict[proc][gene]:
+                RES_OPEN.write('\n')
+                RES_OPEN.write(';'.join([match[0], gene, ';'.join([x for x in match[1:-1]]), '']))
+                if kegg_dict and gene in kegg_dict:
+                    RES_OPEN.write(', '.join(kegg_dict[gene]))
+                RES_OPEN.write(';')
+                if host_dict and gene in host_dict:
+                    RES_OPEN.write(', '.join(host_dict[gene]))
+                RES_OPEN.write(';')
+                RES_OPEN.write(match[-1])
     RES_OPEN.close()
     out_queue.close()
