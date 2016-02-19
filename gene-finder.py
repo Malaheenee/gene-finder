@@ -186,7 +186,7 @@ def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False):
                                         urea|
                                         zeta""", tmp, re.IGNORECASE | re.VERBOSE):
                     continue
-                tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '(\s|\(|\-)']), re.IGNORECASE))
+                tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '\W']), re.IGNORECASE))
             gene_dict[gname] = tmp_list
 
     # Prepare gene dictionary for multirpocessing
