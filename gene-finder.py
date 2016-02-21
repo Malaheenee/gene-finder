@@ -11,7 +11,6 @@ from multiprocessing import cpu_count, Queue, Process, TimeoutError
 
 # Arguments parser
 def arg_receive():
-    "This script ..."
     parser = argparse.ArgumentParser(
         description = 'For use of this script it is necessary have \
         "abstract.txt" file with abstacts (text format of PubMed \
