@@ -112,6 +112,35 @@ def pattern_prepare(pattern_file):
 # Prepare gene dictionary
 def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False):
     gene_dict = {}
+
+    if search_bit != 0:
+        bad_words = re.compile(r"""
+        \b\d?\-?[a-z]\d?\-?\b|
+        \b(a((cts?|dipose)|g(o|e)|i?(d|r|m|s)|p(ex|ril)|r(c|g)h?)|
+        b(ank|ad|ase|e|ig|ut)|
+        c((a|o)(n|m|o|s?t)?\d?|l(i|am)p|oil)|
+        d(amage|iabetes|o)|
+        e(asy|x\-?|cho|ndo?|stimate|yes|x(is|ac)t)|
+        f(a(r|t|c(e|t))|ind|lap|or)|
+        g(ap|as|enesis|et|reat|ut|)|
+        h(e|(i|a)s|int|(e|o)ld|oles?)|
+        i(d|f|mpact|n|t|(I|V)I?)|
+        jaundice|
+        k(d|ca|it)|
+        l(ag|obe|ow|ed|arge|(a|i)(st|ttle|ght))|
+        m(al(\-|e)|(a|e)n|i(n(ute)?|nor)|ass|g|l|m|y|et|cm|u)|
+        n(e|g|m|o)t?|
+        o(bese|f|r|n|d|s|ut)|
+        p(a(d|st)|i(lot|gs?)|er)|
+        r(a(m|n|w)|e(d|st)|im|ro)|
+        s((k|p)in|e(al|t)|t(o|e)p|ac|alt|ex|he|i|imple|kip|lim|o|oft|pasm|pastic|tar)|
+        t(a(ctile|sk)|(i|a)p|en|o|ube|his)|
+        u(p|s|rea)|
+        v(ia|s)|
+        w(e|(a?s)|t|h(at|ite|o)|ave|i(re|sh))|
+        zeta)\b
+        """, re.IGNORECASE | re.VERBOSE)
+
     for string in open(gene_dict_file):
         if string.startswith('#'):
             continue
@@ -129,62 +158,7 @@ def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False):
                 gene_dict[gname] += [gname]
             for tmp in gene_dict[gname]:
                 if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
-                tmp == '' or re.match(r"""\b\d?\-?[a-z]\d?\-?\b|
-                                        ai?(d|r|m|s|my)?|
-                                        ar(c|g)h?|
-                                        acts?|
-                                        ag(o|e)|
-                                        ap(ex|ril)|
-                                        adipose|
-                                        b(e|ig|ut)?|
-                                        b(ank|ad|ase)|
-                                        c(an|m|o|s?t)|
-                                        coil|
-                                        cl(i|am)p|
-                                        d(amage|iabetes)|
-                                        (d|t)o|
-                                        e(asy|x|cho|ndo?|stimate|yes)|
-                                        ex(is|ac)t|
-                                        fa(r|t|c(e|t))|
-                                        f(ind|lap|or)|
-                                        g(ap|as|enesis|et|reat|ut|)|
-                                        h(e|(i|a)s)|
-                                        h(int|eld|ole)|
-                                        i(d|f|n|t)|
-                                        impact|
-                                        jaundice|
-                                        k(d|ca|it)|
-                                        l(ag|obe|ow|ed)|
-                                        li(ttle|ght)|
-                                        la(rge|st)|
-                                        I(I|V)I?|
-                                        m(a|e)n|
-                                        mi((n(ute)?)|nor)|
-                                        m(ass|g|l|m|y|et|cm|u)|
-                                        mal(-|e)|
-                                        n(e|g|m|o)t?|
-                                        o(bese|f|r|n|d|s|ut)|
-                                        per|
-                                        pi(lot|gs)|
-                                        (pa|re)(d|st)|
-                                        ra(m|n|w)|
-                                        r(im|ro)|
-                                        s(k|p)in|
-                                        s(ac|alt|ex|he|i|kip|lim|o|oft|pastic|tar)|
-                                        se(al|t)|
-                                        st(o|e)p|
-                                        simple|
-                                        spasm|
-                                        ta(ctile|sk)|
-                                        t(i|a)p?|
-                                        t(en|ube|his)|
-                                        v(ia|s)|
-                                        w(e|(a?s)|t)|
-                                        white|
-                                        wave|
-                                        wi(re|sh)|u(p|s)|
-                                        urea|
-                                        zeta""", tmp, re.IGNORECASE | re.VERBOSE):
+                tmp == '' or bad_words.match(tmp):
                     continue
                 tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '\W']), re.IGNORECASE))
             gene_dict[gname] = tmp_list
