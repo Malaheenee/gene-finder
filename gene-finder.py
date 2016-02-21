@@ -184,38 +184,40 @@ def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False):
 
 # Search in abstract
 def abs_search(gene_dict, pattern_dict, abstract_file, out_queue):
-    result_dict = {}
-    ABS_OPEN = open(abstract_file, 'r')
-    all_abstracts = Medline.parse(ABS_OPEN)
-    for abstract in all_abstracts:
-        if 'AB' in abstract:
-            abstract_text = re.sub(r'\r\n|\n|\s+|;', ' ', abstract['AB'])
-            abstract_pmid = 'Unknown'
-            abstract_journ = 'Unknown'
-            if 'PMID' in abstract:
-                abstract_pmid = abstract['PMID']
-            if 'SO' in abstract:
-                abstract_journ = abstract['SO']
-
-            for key in gene_dict.keys():
-                for gene in gene_dict[key]:
-                    match = gene.search(abstract_text, re.MULTILINE)
-                    if match:
-                        if key not in result_dict:
-                            result_dict[key] = []
-                        result_dict[key].append([abstract_pmid, match.group(0), \
-                                                 abstract_text[match.start(0)-30:match.end(0)+30]])
-                        result = dict.fromkeys(pattern_dict.keys())
-                        for pattern in sorted(pattern_dict.keys()):
-                            result[pattern] = []
-                            for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
-                                match = str(match.group(0))
-                                if match not in result[pattern]:
-                                    result[pattern].append(match)
-                            result_dict[key][-1].append(', '.join(result[pattern]))
-                        result_dict[key][-1].append(abstract_journ)
-    ABS_OPEN.close()
-    out_queue.put(result_dict)
+    try:
+        result_dict = {}
+        ABS_OPEN = open(abstract_file, 'r')
+        all_abstracts = Medline.parse(ABS_OPEN)
+        for abstract in all_abstracts:
+            if 'AB' in abstract:
+                abstract_text = re.sub(r'\r\n|\n|\s+|;', ' ', abstract['AB'])
+                abstract_pmid = 'Unknown'
+                abstract_journ = 'Unknown'
+                if 'PMID' in abstract:
+                    abstract_pmid = abstract['PMID']
+                if 'SO' in abstract:
+                    abstract_journ = abstract['SO']
+                for key in gene_dict.keys():
+                    for gene in gene_dict[key]:
+                        match = gene.search(abstract_text, re.MULTILINE)
+                        if match:
+                            if key not in result_dict:
+                                result_dict[key] = []
+                            result_dict[key].append([abstract_pmid, match.group(0), \
+                                                     abstract_text[match.start(0)-30:match.end(0)+30]])
+                            result = dict.fromkeys(pattern_dict.keys())
+                            for pattern in sorted(pattern_dict.keys()):
+                                result[pattern] = []
+                                for match in pattern_dict[pattern].finditer(abstract_text, re.MULTILINE):
+                                    match = str(match.group(0))
+                                    if match not in result[pattern]:
+                                        result[pattern].append(match)
+                                result_dict[key][-1].append(', '.join(result[pattern]))
+                            result_dict[key][-1].append(abstract_journ)
+        ABS_OPEN.close()
+        out_queue.put(result_dict)
+    except:
+        print("One of the processes catch an exception and was killed")
 
 # Run program if it call here
 if __name__ == '__main__':
@@ -262,8 +264,8 @@ if __name__ == '__main__':
     for search in searchers:
         search.start()
     for search in searchers:
-        search.join()
-        result_dict[search] = out_queue.get(timeout=1)
+        search.join(timeout=1)
+        result_dict[search] = out_queue.get()
 
     RES_OPEN = open(arg_files['o'], 'w')
     RES_OPEN.write(';'.join(['PMID', 'Gene', 'Exact match', 'Wide string', \
