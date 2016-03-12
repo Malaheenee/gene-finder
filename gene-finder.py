@@ -109,36 +109,8 @@ def pattern_prepare(pattern_file):
     return pattern_dict
 
 # Prepare gene dictionary
-def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False):
+def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False, bad_words="\b\d?\-?[a-z]\d?\-?\b"):
     gene_dict = {}
-
-    if search_bit != 0:
-        bad_words = re.compile(r"""
-        \b\d?\-?[a-z]\d?\-?\b|
-        \b(a((cts?|dipose)|g(o|e)|i?(d|r|m|s)|p(ex|ril)|r(c|g)h?)|
-        b(ank|ad|ase|e|ig|ut)|
-        c((a|o)(n|m|o|s?t)?\d?|l(i|am)p|oil)|
-        d(amage|iabetes|o)|
-        e(asy|x\-?|cho|ndo?|stimate|yes|x(is|ac)t)|
-        f(a(r|t|c(e|t))|ind|lap|or)|
-        g(ap|as|enesis|et|reat|ut|)|
-        h(e|(i|a)s|int|(e|o)ld|oles?)|
-        i(d|f|mpact|n|t|(I|V)I?)|
-        jaundice|
-        k(d|ca|it)|
-        l(ag|obe|ow|ed|arge|(a|i)(st|ttle|ght))|
-        m(al(\-|e)|(a|e)n|i(n(ute)?|nor)|ass|g|l|m|y|et|cm|u)|
-        n(e|g|m|o)t?|
-        o(bese|f|r|n|d|s|ut)|
-        p(a(d|st)|i(lot|gs?)|er)|
-        r(a(m|n|w)|e(d|st)|im|ro)|
-        s((k|p)in|e(al|t)|t(o|e)p|ac|alt|ex|he|i|imple|kip|lim|o|oft|pasm|pastic|tar)|
-        t(a(ctile|sk)|(i|a)p|en|o|ube|his)|
-        u(p|s|rea)|
-        v(ia|s)|
-        w(e|(a?s)|t|h(at|ite|o)|ave|i(re|sh))|
-        zeta)\b
-        """, re.IGNORECASE | re.VERBOSE)
 
     for string in open(gene_dict_file):
         if string.startswith('#'):
@@ -237,7 +209,7 @@ if __name__ == '__main__':
     print(len(pattern_dict), 'patterns.', sep=' ')
 
     print('Prepare gene dictionary... ', end='')
-    gene_dict = gene_prepare(arg_files['g'], 1, arg_files['n'])
+    gene_dict = gene_prepare(arg_files['g'], 1, arg_files['n'], pattern_dict.pop('BADWORD'))
     genes = 0
     for chunk in gene_dict.keys():
         genes += len(gene_dict[chunk])
