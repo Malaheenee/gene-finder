@@ -105,7 +105,7 @@ def pattern_prepare(pattern_file):
             tmp_pat += string
         else:
             tmp_pat += string
-            pattern_dict[tmp_pat_name] = re.compile(tmp_pat, re.IGNORECASE)
+            pattern_dict[tmp_pat_name] = re.compile(tmp_pat, re.IGNORECASE | re.VERBOSE)
     return pattern_dict
 
 # Prepare gene dictionary
