@@ -131,7 +131,7 @@ def gene_prepare(gene_dict_file, search_bit=0, nosyn_bit=False, bad_words="\b\d?
                 if str(type(tmp)).find('_sre.SRE_Pattern') != -1 or \
                 tmp == '' or bad_words.match(tmp):
                     continue
-                tmp_list.append(re.compile(''.join(['\se?', re.escape(tmp), '\W']), re.IGNORECASE))
+                tmp_list.append(re.compile(''.join(['\We?', re.escape(tmp), '\W']), re.IGNORECASE))
             gene_dict[gname] = tmp_list
 
     # Prepare gene dictionary for multirpocessing
