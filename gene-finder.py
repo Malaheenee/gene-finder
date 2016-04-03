@@ -248,11 +248,12 @@ if __name__ == '__main__':
             for match in result_dict[proc][gene]:
                 RES_OPEN.write('\n')
                 RES_OPEN.write(';'.join([match[0], gene, ';'.join([x for x in match[1:-1]]), '']))
-                if kegg_dict and gene in kegg_dict:
-                    RES_OPEN.write(', '.join(kegg_dict[gene]))
+                key = match[1][1:-1]
+                if kegg_dict and key in kegg_dict:
+                    RES_OPEN.write(', '.join(kegg_dict[key]))
                 RES_OPEN.write(';')
-                if host_dict and gene in host_dict:
-                    RES_OPEN.write(', '.join(host_dict[gene]))
+                if host_dict and key in host_dict:
+                    RES_OPEN.write(', '.join(host_dict[key]))
                 RES_OPEN.write(';')
                 RES_OPEN.write(match[-1])
     RES_OPEN.close()
