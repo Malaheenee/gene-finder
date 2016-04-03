@@ -28,7 +28,7 @@ zeta)\b
 \(?(miR|let)\)?\-\d+\w*(-3p|-5p)?\*?
 
 #NWORD
-arter(y|ies)(\ *)hypertension|
+\b(arter(y|ies)(\ *)hypertension|
 mouse|
 mice|
 rat|
@@ -36,10 +36,10 @@ human|
 (cell)(\ *)(line)|
 endothelial|
 vascular(\ *)smooth(\ *)muscle|
-mesenteric
+mesenteric)\b
 
 #PWORD
-oxidative(\ *)stress|
+\b(oxidative(\ *)stress|
 angiotensin-converting(\ *)enzyme|
 vasodilation|
 contraction|
@@ -49,10 +49,10 @@ vasopressin-regulated|
 stiffness|
 platelet|
 endothelin((\ *)|-)1|
-matrix(\ *)metallopeptidase
+matrix(\ *)metallopeptidase)\b
 
 #SWORD
-aldosterone|
+\b(aldosterone|
 transcription(\ *)factor|
 cell(\ *)cycle|
 apoptosis|
@@ -103,4 +103,4 @@ immun(ity|e)|
 aort(a|ic)|
 collagen|
 endothelin|
-atherosclerosis?
+atherosclerosis?)\b
