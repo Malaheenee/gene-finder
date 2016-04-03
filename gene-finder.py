@@ -176,7 +176,8 @@ def abs_search(gene_dict, pattern_dict, abstract_file, out_queue):
                             if key not in result_dict:
                                 result_dict[key] = []
                             result_dict[key].append([abstract_pmid, match.group(0), \
-                                                     abstract_text[match.start(0)-30:match.end(0)+30]])
+                                                     abstract_text[match.start(0)-(match.start(0) if match.start(0) < 30 else 30):\
+                                                                   match.end(0)+(match.end(0) if match.end(0) < 30 else 30)]])
                             result = dict.fromkeys(pattern_dict.keys())
                             for pattern in sorted(pattern_dict.keys()):
                                 result[pattern] = []
