@@ -189,7 +189,7 @@ def abs_search(gene_dict, pattern_dict, abstract_file, out_queue):
         ABS_OPEN.close()
         out_queue.put(result_dict)
     except:
-        print("One of the processes catch an exception and was killed")
+        print("One of the processes got an exception and was killed")
 
 # Run program if it call here
 if __name__ == '__main__':
