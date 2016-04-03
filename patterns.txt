@@ -25,7 +25,7 @@ w(e|(a?s)|t|h(at|ite|o)|ave|i(re|sh))|
 zeta)\b
 
 #MIR
-\(?(miR|let)\)?\-\d+\w*(-3p|-5p)?\*?
+\(?(miR|let)\)?\-?\d+\w*(-3p|-5p)?\*?
 
 #NWORD
 \b(arter(y|ies)(\ *)hypertension|
